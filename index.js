@@ -40,6 +40,7 @@ http.createServer((req, res) => {
             //Requerimiento 4
             let alertMsj = `<div class="container w-25 m-auto text-center">
             <div class="alert alert-success" role="alert">
+            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
                 Correo enviado con exito
             </div>
             </div>`
@@ -47,8 +48,7 @@ http.createServer((req, res) => {
             fs.readFile('index.html', 'UTF8', (error, html) => {
                 html += alertMsj;
                 res.end(html);
-            })
-
+            });
             fs.writeFile(`./correos/correo-${id}.txt`, template, (err) => {
                 if (err) {
                     console.log('No se pudo crear el archivo');
@@ -57,13 +57,13 @@ http.createServer((req, res) => {
                     console.log('Archivo creado con exito');
                     res.end();
                 }
-            });           
-
+            }); 
         }).catch((response) => {
             console.log('correo no enviado');
             
             let alertMsj = `<div class="container w-25 m-auto text-center">
             <div class="alert alert-danger" role="alert">
+            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                 Correo no enviado
             </div>
             </div>`
