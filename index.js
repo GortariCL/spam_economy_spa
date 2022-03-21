@@ -34,16 +34,16 @@ http.createServer((req, res) => {
 
             let template = `Correos: ${correos} 
             \nAsunto: ${asunto}
-            \nContenido: ${contenido}
+            \nContenido: ${contenido.substring(3, contenido.length-8)}
             \n${indicador}
             `;
             //Requerimiento 4
             let alertMsj = `<div class="container w-25 m-auto text-center">
             <div class="alert alert-success" role="alert">
-                Correo enviado Con exito
+                Correo enviado con exito
             </div>
             </div>`
-                        
+
             fs.readFile('index.html', 'UTF8', (error, html) => {
                 html += alertMsj;
                 res.end(html);

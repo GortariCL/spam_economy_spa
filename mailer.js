@@ -32,7 +32,7 @@ const enviar = (to, subject, text) => {
     
         transporter.sendMail(mailOptions, (err, data) => {
             if (err) {
-                reject(err)
+                reject(err);
             } if (data) {
                 resolve(data);
             }
